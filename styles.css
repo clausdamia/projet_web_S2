@@ -4,7 +4,10 @@
 }
 
 body {
-  background-color: hsl(240, 3%, 7%);
+  background-image: url(back.avif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -80,12 +83,41 @@ body {
   grid-template-rows: repeat(6, 4em);
   gap: .25em;
   margin-bottom: 1em;
+  margin-right: 300px;
+}
+.Title{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(5, 4em);
+  grid-template-rows: repeat(2, 4em);
+  gap: .25em;
+  margin-bottom: 150px;
+  margin-left: 50px;
+  
+}
+.container{
+  display: flex;
+
+}
+.tile2 {
+  font-size: 2em;
+  color: white;
+  border: .05em solid hsl(294, 19%, 20%);
+  background: linear-gradient(blue, pink);
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  
 }
 
 .tile {
   font-size: 2em;
   color: white;
-  border: .05em solid hsl(240, 2%, 23%);
+  border: .05em solid hsl(0, 0%, 96%);
   text-transform: uppercase;
   font-weight: bold;
   display: flex;
@@ -101,16 +133,17 @@ body {
 
 .tile[data-state="wrong"] {
   border: none;
-  background-color: hsl(240, 2%, 23%);
+  background-color: hsl(150, 1%, 33%);
 }
 
 .tile[data-state="wrong-location"] {
-  border: none;
+  border: hsl(49, 74%, 40%) 2px solid;
+  border-radius: 30px;
   background-color: hsl(49, 51%, 47%);
 }
 
 .tile[data-state="correct"] {
-  border: none;
+  border: green 2px solid;
   background-color: hsl(115, 29%, 43%);
 }
 
