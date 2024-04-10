@@ -1,3 +1,5 @@
+// pour pouvoir acceder au code rapidement, aller ligne -> 15300 ou alors reduire les tableaux (cliquer sur la petite flèche)
+
 const targetWords = [
   "cigar",
   "rebut",
@@ -15289,13 +15291,19 @@ const dictionary = [
   "rural",
   "shave",
 ]
-const WORD_LENGTH = 5
-const FLIP_ANIMATION_DURATION = 500
-const DANCE_ANIMATION_DURATION = 500
-const keyboard = document.querySelector("[data-keyboard]")
+
+
+
+const WORD_LENGTH = 5 // taille du mot 
+const FLIP_ANIMATION_DURATION = 300 // durée pour l'animation quand les lettres tournentn
+const keyboard = document.querySelector("[data-keyboard]") // init le clavier
 const alertContainer = document.querySelector("[data-alert-container]")
-const guessGrid = document.querySelector("[data-guess-grid]")
-const offsetFromDate = new Date(2022, 0, 1)
+const guessGrid = document.querySelector("[data-guess-grid]") // init de la grille
+// on choisit le mot en fonction de la date du jour (decommenter si vous voulez essayer des mots différents)
+//const offsetFromDate = new Date(2022, 10, 0)
+//const offsetFromDate = new Date(2022,20,0)
+const offsetFromDate = new Date(2022,20,0)
+
 const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
 const targetWord = targetWords[Math.floor(dayOffset)]
@@ -15346,6 +15354,8 @@ function handleKeyPress(e) {
   }
 }
 
+//fonction pour l'ajout et la suppression des lettres
+
 function pressKey(key) {
   const activeTiles = getActiveTiles()
   if (activeTiles.length >= WORD_LENGTH) return
@@ -15364,9 +15374,11 @@ function deleteKey() {
   delete lastTile.dataset.letter
 }
 
+// quand on appuie sur la touche entrée
+
 function submitGuess() {
   const activeTiles = [...getActiveTiles()]
-  if (activeTiles.length !== WORD_LENGTH) {
+  if (activeTiles.length !== WORD_LENGTH) { // on regarde si le mot fait la bonne taille
     showAlert("Not enough letters")
     shakeTiles(activeTiles)
     return
@@ -15376,22 +15388,20 @@ function submitGuess() {
     return word + tile.dataset.letter
   }, "")
 
-  if (!dictionary.includes(guess)) {
+  if (!dictionary.includes(guess)) { // on regarde si le mot existe
     showAlert("Not in word list")
     shakeTiles(activeTiles)
     return
   }
 
   stopInteraction()
-  activeTiles.forEach((...params) => flipTile(...params, guess))
+  activeTiles.forEach((...params) => flipTile(...params, guess)) // on fait l'animation de flip pour toute les lettres
 }
 
 function flipTile(tile, index, array, guess) {
   const letter = tile.dataset.letter
   const key = keyboard.querySelector(`[data-key="${letter}"i]`)
-  setTimeout(() => {
-    tile.classList.add("flip")
-  }, (index * FLIP_ANIMATION_DURATION) / 2)
+  setTimeout(() => {tile.classList.add("flip")}, (index * FLIP_ANIMATION_DURATION) / 2)
 
   tile.addEventListener(
     "transitionend",
@@ -15400,10 +15410,12 @@ function flipTile(tile, index, array, guess) {
       if (targetWord[index] === letter) {
         tile.dataset.state = "correct"
         key.classList.add("correct")
-      } else if (targetWord.includes(letter)) {
+      } 
+      else if (targetWord.includes(letter)) {
         tile.dataset.state = "wrong-location"
         key.classList.add("wrong-location")
-      } else {
+      } 
+      else {
         tile.dataset.state = "wrong"
         key.classList.add("wrong")
       }
@@ -15427,6 +15439,7 @@ function getActiveTiles() {
   return guessGrid.querySelectorAll('[data-state="active"]')
 }
 
+// pour l'affichage des messages d'alerte 
 function showAlert(message, duration = 1000) {
   const alert = document.createElement("div")
   alert.textContent = message
@@ -15436,51 +15449,29 @@ function showAlert(message, duration = 1000) {
 
   setTimeout(() => {
     alert.classList.add("hide")
-    alert.addEventListener("transitionend", () => {
-      alert.remove()
-    })
+    alert.addEventListener("transitionend", () => {alert.remove()})
   }, duration)
 }
 
-function shakeTiles(tiles) {
+function shakeTiles(tiles) { // animation pour quand le mot n'est pas dans la liste 
   tiles.forEach(tile => {
     tile.classList.add("shake")
-    tile.addEventListener(
-      "animationend",
-      () => {
-        tile.classList.remove("shake")
-      },
-      { once: true }
-    )
+    tile.addEventListener("animationend",() => {tile.classList.remove("shake")},{ once: true })
   })
 }
+
+// on regarde si le mot est strictement le même 
 
 function checkWinLose(guess, tiles) {
   if (guess === targetWord) {
     showAlert("You Win", 5000)
-    danceTiles(tiles)
     stopInteraction()
     return
   }
-
+  // (defaite) sinon on affiche le bon mot 
   const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
   if (remainingTiles.length === 0) {
-    showAlert(targetWord.toUpperCase(), null)
+    showAlert(`the word was ${targetWord.toUpperCase()}`, null)
     stopInteraction()
   }
-}
-
-function danceTiles(tiles) {
-  tiles.forEach((tile, index) => {
-    setTimeout(() => {
-      tile.classList.add("dance")
-      tile.addEventListener(
-        "animationend",
-        () => {
-          tile.classList.remove("dance")
-        },
-        { once: true }
-      )
-    }, (index * DANCE_ANIMATION_DURATION) / 5)
-  })
 }
