@@ -597,7 +597,7 @@ const dictionary = [
 "zebre", "zeles", "zebra", "zebus", "zelee", "zeros"
 ]
 
-const WORD_LENGTH = 5 // taille du mot 
+const WORD_LENGTH = 5 // taille du mot
 const FLIP_ANIMATION_DURATION = 300 // durée pour l'animation quand les lettres tournentn
 const keyboard = document.querySelector("[data-keyboard]") // init le clavier
 const alertContainer = document.querySelector("[data-alert-container]")
@@ -642,21 +642,20 @@ function handleMouseClick(e) {
 
 function handleKeyPress(e) {
   if (e.key === "Enter") {
-    submitGuess();
-    return;
+    submitGuess()
+    return
   }
 
-  if (e.key === "Backspace" || e.key === "Delete" || e.key === "Del") {
-    deleteKey();
-    return;
+  if (e.key === "Backspace" || e.key === "Delete") {
+    deleteKey()
+    return
   }
 
   if (e.key.match(/^[a-z]$/)) {
-    pressKey(e.key);
-    return;
+    pressKey(e.key)
+    return
   }
 }
-
 
 //fonction pour l'ajout et la suppression des lettres
 
