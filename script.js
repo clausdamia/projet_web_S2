@@ -15339,20 +15339,21 @@ function handleMouseClick(e) {
 
 function handleKeyPress(e) {
   if (e.key === "Enter") {
-    submitGuess()
-    return
+    submitGuess();
+    return;
   }
 
-  if (e.key === "Backspace" || e.key === "Delete") {
-    deleteKey()
-    return
+  if (e.key === "Backspace" || e.key === "Delete" || e.key === "Del") {
+    deleteKey();
+    return;
   }
 
   if (e.key.match(/^[a-z]$/)) {
-    pressKey(e.key)
-    return
+    pressKey(e.key);
+    return;
   }
 }
+
 
 //fonction pour l'ajout et la suppression des lettres
 
