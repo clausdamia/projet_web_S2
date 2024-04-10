@@ -613,12 +613,12 @@ const targetWord = targetWords[Math.floor(dayOffset)]
 
 startInteraction()
 
-const startInteraction = () => {
+function startInteraction() {
   document.addEventListener("click", handleMouseClick);
   document.addEventListener("keydown", handleKeyPress);
 };
 
-const stopInteraction = () => {
+function stopInteraction() {
   document.removeEventListener("click", handleMouseClick);
   document.removeEventListener("keydown", handleKeyPress);
 };
@@ -738,7 +738,7 @@ function flipTile(tile, index, array, guess) {
   )
 }
 
-const getActiveTiles = () => {
+function getActiveTiles() {
   return guessGrid.querySelectorAll('[data-state="active"]');
 };
 
