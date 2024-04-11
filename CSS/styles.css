@@ -289,7 +289,7 @@ body.mode-bleu {
   color: white;
   border: .05em solid hsl(288, 20%, 95%);
   
-  background: radial-gradient(#9ad8f3, #414899);
+  
   text-transform: uppercase;
   font-weight: bold;
   display: flex;
