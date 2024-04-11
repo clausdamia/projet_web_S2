@@ -1,0 +1,114 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: Arial;
+  }
+  
+  body {
+    background-image: linear-gradient(135deg, rgb(9, 72, 148), rgb(57, 222, 248));
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1em;
+    font-size: clamp(.5rem, 2.5vmin, 1.5rem);
+  }
+
+  .Title{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(11, 6em);
+    grid-template-rows: repeat(1, 6em);
+    justify-content: center;
+    gap: 1em;
+    
+  }
+  .homeimg{
+   
+    width: 2.5em;
+    height: 2.5em;
+  }
+  
+  .tile2 {
+    font-size: 2em;
+    color: white;
+    border: .05em solid hsl(288, 20%, 95%);
+
+    background: radial-gradient(#9ad8f3, #414899);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 10px; /* Vous pouvez ajuster la valeur de border-radius selon vos préférences */
+  }
+  .bouton{
+    display:grid;
+    grid-template-columns: repeat(1, 30em);
+    grid-template-rows: repeat(3, 6em);
+    margin-top: 50px;
+    justify-content: center;
+    gap: 1.5em;
+  }
+  .btn{
+    font-size: 2em;
+    color: white;
+    border: .05em solid hsl(288, 20%, 95%);
+    background: radial-gradient(#9ad8f3, #414899);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 10px;
+  }
+ 
+  .lien{
+        text-decoration: none;
+
+        color: white;
+  }
+  .titre{
+    margin-top: 30px;
+    font-size: 2em;
+    color: white;
+   
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 10px;
+  }
+  body.mode-violet{
+    background-image: linear-gradient(135deg, rgb(94, 14, 97), rgb(229, 118, 237));
+  }
+  .tile2.mode-violet {
+    background: radial-gradient(#bd75c1, #793281);
+  }
+  .mode-violet{
+    background: radial-gradient(#bd75c1, #793281);
+  }
+  body.mode-bleu {
+    background-image: linear-gradient(135deg, rgb(9, 72, 148), rgb(57, 222, 248));
+  }
+  .tile2.mode-bleu {
+    background: radial-gradient(#9ad8f3, #414899);
+  }
+  
+  .mode-bleu{
+    background: radial-gradient(#9ad8f3, #414899);
+  }
+  .mode-vert{
+    background: radial-gradient(#75c185, #328137);
+  }
+  body.mode-vert {
+    background-image: linear-gradient(135deg, rgb(22, 111, 10), rgb(137, 210, 138));
+  }
+  .tile2.mode-vert {
+    background: radial-gradient(#75c185, #328137);
+  }
+  
+ 
+

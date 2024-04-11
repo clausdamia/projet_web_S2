@@ -867,3 +867,136 @@ const targetWords = [
       stopInteraction();
     }
   }
+  
+  // Fonction pour activer le mode bleu
+function ModeBleu() {
+  if (!document.body.classList.contains('mode-bleu')) {
+      // Supprimer les autres modes
+      document.querySelectorAll('.tile2').forEach(function(element) {
+          element.classList.remove('mode-violet', 'mode-vert');
+      });
+      var bouton = document.querySelector('.btn.home');
+      bouton.classList.remove('mode-violet', 'mode-vert');
+      document.body.classList.remove('mode-violet', 'mode-vert');
+      
+      // Ajouter le mode bleu
+      document.body.classList.add('mode-bleu');
+      document.querySelectorAll('.tile2').forEach(function(element) {
+          element.classList.add('mode-bleu');
+      });
+      bouton.classList.toggle('mode-bleu');
+      
+      // Sauvegarder le mode dans localStorage
+      sessionStorage.setItem('mode', 'bleu');
+      var mod = sessionStorage.getItem('mode');
+      var url = window.location.href;
+      if (url.includes("parametre.html")) {
+        var lien = document.querySelector('.lien');
+        // Ajouter le mode en tant que paramètre à l'URL
+        lien.href = "../home.html?mode=" + mod;
+          }
+        
+        if (url.includes("home.html")) {
+          var lien = document.querySelector('.lien3');
+          // Ajouter le mode en tant que paramètre à l'URL
+          lien.href = "Html/parametre.html?mode=" + mod;
+            }
+          }
+          }
+          
+
+
+// Fonction pour activer le mode violet
+function ModeViolet() {
+  console.log("La fonmodeviolet a été appelée.");
+ 
+  if (!document.body.classList.contains('mode-violet')) {
+      document.querySelectorAll('.tile2').forEach(function(element) {
+          element.classList.remove('mode-bleu', 'mode-vert');
+      });
+      console.log("Laelée.");
+      document.querySelectorAll('.btn.home').forEach(function(element) {
+        element.classList.remove('mode-bleu', 'mode-vert');
+      });
+      document.body.classList.remove('mode-bleu', 'mode-vert');
+  
+      document.body.classList.add('mode-violet');
+      document.querySelectorAll('.tile2').forEach(function(element) {
+          element.classList.add('mode-violet');
+      });
+      document.querySelectorAll('.btn.home').forEach(function(element) {
+        element.classList.add('mode-violet');
+      });
+      sessionStorage.setItem('mode', 'violet');
+      var mod = sessionStorage.getItem('mode');
+      var url = window.location.href;
+if (url.includes("parametre.html")) {
+  var lien = document.querySelector('.lien');
+  // Ajouter le mode en tant que paramètre à l'URL
+  lien.href = "../home.html?mode=" + mod;
+    }
+  
+  if (url.includes("home.html")) {
+    var lien = document.querySelector('.lien3');
+    // Ajouter le mode en tant que paramètre à l'URL
+    lien.href = "Html/parametre.html?mode=" + mod;
+      }
+    }
+}
+
+
+// Fonction pour activer le mode vert
+function ModeVert() {
+  console.log("mode vertté appelée.");
+  if (!document.body.classList.contains('mode-vert')) {
+      // Supprimer les autres modes
+      document.querySelectorAll('.tile2').forEach(function(element) {
+          element.classList.remove('mode-bleu', 'mode-violet');
+      });
+      document.querySelectorAll('.btn.home').forEach(function(element) {
+      element.classList.remove('mode-bleu', 'mode-violet');
+    });
+      document.body.classList.remove('mode-violet', 'mode-bleu');
+      
+      document.body.classList.add('mode-vert');
+      document.querySelectorAll('.tile2').forEach(function(element) {
+          element.classList.add('mode-vert');
+      });
+      document.querySelectorAll('.btn.home').forEach(function(element) {
+      element.classList.add('mode-vert');
+    });
+      sessionStorage.setItem('mode', 'vert');
+      var mod = sessionStorage.getItem('mode');
+  var url = window.location.href;
+  if (url.includes("parametre.html")) {
+    var lien = document.querySelector('.lien');
+// Ajouter le mode en tant que paramètre à l'URL
+    lien.href = "../home.html?mode=" + mod;
+  }
+
+if (url.includes("home.html")) {
+  var lien = document.querySelector('.lien3');
+  // Ajouter le mode en tant que paramètre à l'URL
+  lien.href = "Html/parametre.html?mode=" + mod;
+    }
+  }
+  
+}
+
+// Récupérer les paramètres d'URL
+const params = new URLSearchParams(window.location.search);
+const mode = params.get('mode');
+console.log(mode);
+
+// Traiter le mode récupéré
+if (mode === 'bleu') {
+    // Appliquer le mode bleu
+    ModeBleu();
+} else if (mode === 'violet') {
+  ModeViolet();
+    // Appliquer le mode violet
+} else if (mode === 'vert') {
+  ModeVert();
+  console.log("movert aopeke.");
+    // Appliquer le mode vert
+}
