@@ -691,7 +691,7 @@ const targetWords = [
   
   //fonction pour l'ajout et la suppression des lettres
   
-  function pressKey(key) {
+  const pressKey = (key) => {
     // Récupère les tuiles actives dans la grille de devinettes
     const activeTiles = getActiveTiles();
     // Vérifie si le nombre de tuiles actives atteint ou dépasse la longueur du mot
@@ -706,7 +706,7 @@ const targetWords = [
     nextTile.dataset.state = "active";
   }
   
-  function deleteKey() {
+  const deleteKey = () => {
     // Récupère les tuiles actives dans la grille de devinettes
     const activeTiles = getActiveTiles();
     // Récupère la dernière tuile active
@@ -722,7 +722,7 @@ const targetWords = [
   
   // quand on appuie sur la touche entrée
   
-  function submitGuess() {
+  const submitGuess = () => {
     // Récupère les tuiles actives dans la grille de devinettes
     const activeTiles = [...getActiveTiles()];
     
