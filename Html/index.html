@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/styles.css">
-  <script src="../script.js" defer></script>
+  
   <title>Wordle mais pour un projet d'indo</title>
 </head>
 <body >
@@ -55,8 +55,12 @@
     <div class="tile"></div>
     <div class="tile"></div>
   </div>
-  <button class="btn">
-    <a href="../home.html">Home</a></button>
+  <button class="btn home">
+    <a class="lien" href="../home.html?mode="><img
+      class="homeimg"
+      src="../home.png"
+      alt="Home"
+    ></a></button>
 </div>
   <div data-keyboard class="keyboard">
     <button class="key" data-key="A">A</button>
@@ -91,5 +95,6 @@
     <!-- pour pouvoir avoir une belle image de bouton supprimer -->
     <button data-delete class="key large" class="btn-dlt">Delete</button>
   </div>
+  <script src="../script.js" defer></script>
 </body>
 </html>

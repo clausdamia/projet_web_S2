@@ -896,11 +896,20 @@ function ModeBleu() {
         lien.href = "../home.html?mode=" + mod;
           }
         
-        if (url.includes("home.html")) {
-          var lien = document.querySelector('.lien3');
-          // Ajouter le mode en tant que paramètre à l'URL
-          lien.href = "Html/parametre.html?mode=" + mod;
-            }
+          if (url.includes("home.html")) {
+            var lien = document.querySelector('.lien3');
+            // Ajouter le mode en tant que paramètre à l'URL
+            lien.href = "Html/parametre.html?mode=" + mod;
+            var lien2 = document.querySelector('.lien2');
+            // Ajouter le mode en tant que paramètre à l'URL
+            lien2.href = "Html/index.html?mode=" + mod;
+              }
+            
+            if (url.includes("index.html")) {
+              var lien = document.querySelector('.lien');
+              
+                  lien.href = "../home.html?mode=" + mod;
+                }
           }
           }
           
@@ -936,11 +945,20 @@ if (url.includes("parametre.html")) {
   lien.href = "../home.html?mode=" + mod;
     }
   
-  if (url.includes("home.html")) {
-    var lien = document.querySelector('.lien3');
-    // Ajouter le mode en tant que paramètre à l'URL
-    lien.href = "Html/parametre.html?mode=" + mod;
-      }
+    if (url.includes("home.html")) {
+      var lien = document.querySelector('.lien3');
+      // Ajouter le mode en tant que paramètre à l'URL
+      lien.href = "Html/parametre.html?mode=" + mod;
+      var lien2 = document.querySelector('.lien2');
+      // Ajouter le mode en tant que paramètre à l'URL
+      lien2.href = "Html/index.html?mode=" + mod;
+        }
+      
+      if (url.includes("index.html")) {
+        var lien = document.querySelector('.lien');
+        // Ajouter le mode en tant que paramètre à l'URL
+            lien.href = "../home.html?mode=" + mod;
+          }
     }
 }
 
@@ -978,10 +996,19 @@ if (url.includes("home.html")) {
   var lien = document.querySelector('.lien3');
   // Ajouter le mode en tant que paramètre à l'URL
   lien.href = "Html/parametre.html?mode=" + mod;
+  var lien2 = document.querySelector('.lien2');
+  // Ajouter le mode en tant que paramètre à l'URL
+  lien2.href = "Html/index.html?mode=" + mod;
     }
-  }
   
+  if (url.includes("index.html")) {
+    var lien = document.querySelector('.lien');
+    // Ajouter le mode en tant que paramètre à l'URL
+        lien.href = "../home.html?mode=" + mod;
+      }
+    }
 }
+
 
 // Récupérer les paramètres d'URL
 const params = new URLSearchParams(window.location.search);

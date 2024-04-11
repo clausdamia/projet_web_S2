@@ -274,7 +274,30 @@ body.mode-bleu {
 .tile2.mode-bleu {
   background: radial-gradient(#9ad8f3, #414899);
 }
+.lien{
+  text-decoration: none;
 
+  color: white;
+}
+.homeimg{
+   
+  width: 2.5em;
+  height: 2.5em;
+}
+.btn.home{
+  font-size: 1.5em;
+  color: white;
+  border: .05em solid hsl(288, 20%, 95%);
+  
+  background: radial-gradient(#9ad8f3, #414899);
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  border-radius: 10px; /
+}
 .mode-bleu{
   background: radial-gradient(#9ad8f3, #414899);
 }
