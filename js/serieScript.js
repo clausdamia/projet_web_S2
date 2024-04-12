@@ -921,12 +921,6 @@ const targetWords = [
         if (attempt > 4){
             showAlert(`Score :${score}`, 5000);
             showAlert(`Mot devinés:${guessedWords}`, 5000);
-    
-            // Attendre 3 secondes
-            setTimeout(function() {
-                // Rediriger vers la page "home.html" après l'attente de 3 secondes
-                window.location.href = "accueil.html";
-            }, 5000);
         }
     
         const tiles = document.querySelectorAll('.tile')
