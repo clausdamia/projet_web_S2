@@ -875,7 +875,7 @@ function shakeTiles(tiles) {
 function checkWinLose(guess, tiles) {
     // Vérifie si la tentative de mot correspond au mot cible
     if (guess === targetWord) {
-        // Affiche un message de victoire pendant 5 secondes
+        // Affiche un message de victoire pendant 3 secondes
         showAlert("Tu as gagné", 3000);
         guessedWords++;
         attempt++;
@@ -910,8 +910,8 @@ function checkWinLose(guess, tiles) {
     const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])");
     // Si toutes les tuiles sont remplies et que le joueur n'a pas trouvé le mot
     if (remainingTiles.length === 0) {
-    // Affiche le mot cible en majuscules comme message de défaite
     attempt++;
+    // Affiche le mot cible en majuscules comme message de défaite
     showAlert(`Le mot était ${targetWord.toUpperCase()}`, 3000);
     // Arrête l'interaction avec le jeu
     resetTiles();
@@ -919,15 +919,19 @@ function checkWinLose(guess, tiles) {
 }
 
 function resetTiles() {
-
-    if (attempt > 4){
+    // Vérifie si le nombre de tentatives est supérieur à 4
+    if (attempt > 4) {
+        // Affiche le score et le nombre de mots devinés pendant 5000 millisecondes
         showAlert(`Score : ${score}`, 5000);
         showAlert(`Mots devinés : ${guessedWords}`, 5000);
 
+        // Arrête l'interaction avec l'utilisateur
         stopInteraction();
     }
 
-    const tiles = document.querySelectorAll('.tile')
+    // Sélectionne toutes les tuiles
+    const tiles = document.querySelectorAll('.tile');
+
     // Réinitialise toutes les tuiles
     tiles.forEach(tile => {
         // Efface le contenu de la tuile
@@ -945,8 +949,11 @@ function resetTiles() {
         key.classList.remove('wrong', 'wrong-location', 'correct');
     });
 
+    // Réinitialise le mot cible avec le mot correspondant au nombre de tentatives actuel
     targetWord = selectedWords[attempt];
+    // Réinitialise la rangée active à 0
     active_row = 0;
+    // Termine l'exécution de la fonction
     return;
 }
 
@@ -956,115 +963,218 @@ function updateScoreboard() {
     guessedWordsElement.textContent = guessedWords;
 }
 
-    
-  // Fonction pour activer le mode bleu
+// Fonction pour activer le mode bleu
 function ModeBleu() {
+    // Vérifie si le mode bleu n'est pas déjà activé
     if (!document.body.classList.contains('mode-bleu')) {
-        // Supprimer les autres modes
+        // Supprimer les autres modes (violet et vert) des tuiles
         document.querySelectorAll('.tile2').forEach(function(element) {
             element.classList.remove('mode-violet', 'mode-vert');
         });
+
+        // Supprimer les autres modes (violet et vert) du bouton home
         var bouton = document.querySelector('.btn.home');
-        var score=document.querySelector('.scoreboard');
         bouton.classList.remove('mode-violet', 'mode-vert');
-        score.classList.remove('mode-violet', 'mode-vert');
+
+        // Supprimer les classes des modes violet et vert du body
         document.body.classList.remove('mode-violet', 'mode-vert');
-        
-        // Ajouter le mode bleu
+
+        // Ajouter la classe du mode bleu au body
         document.body.classList.add('mode-bleu');
+
+        // Ajouter la classe du mode bleu aux tuiles
         document.querySelectorAll('.tile2').forEach(function(element) {
             element.classList.add('mode-bleu');
         });
-        
-        score.classList.add('mode-bleu');
+
+        document.querySelectorAll('.scoreboard').forEach(function(element) {
+            element.classList.add('mode-bleu');
+        });
+
+        // Ajouter la classe du mode bleu au bouton home
         bouton.classList.toggle('mode-bleu');
-        
-       
+
+        // Sauvegarder le mode bleu dans sessionStorage
         sessionStorage.setItem('mode', 'bleu');
         var mod = sessionStorage.getItem('mode');
-        score.classList.add('mode-bleu');
-        var lien = document.querySelector('.lien');
-          lien.href = "../home.html?mode=" + mod;
-            }
-            }
-            
-  
-  
-  // Fonction pour activer le mode violet
-  function ModeViolet() {
-    console.log("La fonmodeviolet a été appelée.");
-   
+        var url = window.location.href;
+
+        // Si la page actuelle est "parametre.html"
+        if (url.includes("parametre.html")) {
+            var lien = document.querySelector('.lien');
+            // Ajouter le mode en tant que paramètre à l'URL du lien
+            lien.href = "../home.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "home.html"
+        if (url.includes("home.html")) {
+            var lien3 = document.querySelector('.lien3');
+            lien3.href = "HTML/parametre.html?mode=" + mod;
+            var lien2 = document.querySelector('.lien2');
+            lien2.href = "HTML/dailyWord.html?mode=" + mod;
+            var lien = document.querySelector('.lien');
+            lien.href = "HTML/serie.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "dailyWord.html"
+        if (url.includes("dailyWord.html")) {
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+        
+        // Si la page actuelle est "serie.html"
+        if (url.includes("serie.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode violet
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+    }
+}
+
+// Fonction pour activer le mode violet
+function ModeViolet() {
+    // Vérifie si le mode violet n'est pas déjà activé
     if (!document.body.classList.contains('mode-violet')) {
+        // Supprimer les autres modes (bleu et violet) des tuiles et ajouter le mode violet
         document.querySelectorAll('.tile2').forEach(function(element) {
             element.classList.remove('mode-bleu', 'mode-vert');
-        });
-        console.log("Laelée.");
-        document.querySelectorAll('.btn.home').forEach(function(element) {
-          element.classList.remove('mode-bleu', 'mode-vert');
-        });
-        document.body.classList.remove('mode-bleu', 'mode-vert');
-        var score=document.querySelector('.scoreboard');
-        score.classList.remove('mode-bleu', 'mode-vert');
-        document.body.classList.add('mode-violet');
-        document.querySelectorAll('.tile2').forEach(function(element) {
             element.classList.add('mode-violet');
         });
-        document.querySelectorAll('.btn.home').forEach(function(element) {
-          element.classList.add('mode-violet');
-        });
         
-        score.classList.add('mode-violet');
+        // Supprimer les autres modes (bleu et violet) des boutons home et ajouter le mode violet
+        document.querySelectorAll('.btn.home').forEach(function(element) {
+            element.classList.remove('mode-bleu', 'mode-vert');
+            element.classList.add('mode-violet');
+        });
+
+        // Supprimer les autres modes (bleu et violet) du scoreboard et ajouter le mode violet
+        document.querySelectorAll('.scoreboard').forEach(function(element) {
+            element.classList.remove('mode-bleu', 'mode-vert');
+            element.classList.add('mode-violet');
+        });
+
+        // Supprimer les classes des modes bleu et vert du body
+        document.body.classList.remove('mode-bleu', 'mode-vert');
+
+        // Ajouter la classe du mode violet au body
+        document.body.classList.add('mode-violet');
+
+        // Enregistrer le mode violet dans sessionStorage
         sessionStorage.setItem('mode', 'violet');
         var mod = sessionStorage.getItem('mode');
-        score.classList.add('mode-violet');
-        var lien = document.querySelector('.lien');
-          lien.href = "../home.html?mode=" + mod;
-      }
-  }
-  
-  
-  // Fonction pour activer le mode vert
-  function ModeVert() {
-    console.log("mode vertté appelée.");
+        var url = window.location.href;
+
+        // Si la page actuelle est "parametre.html"
+        if (url.includes("parametre.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode violet
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "home.html"
+        if (url.includes("home.html")) {
+            // Mettre à jour les liens des boutons de navigation avec le mode violet
+            var lien3 = document.querySelector('.lien3');
+            lien3.href = "HTML/parametre.html?mode=" + mod;
+            var lien2 = document.querySelector('.lien2');
+            lien2.href = "HTML/dailyWord.html?mode=" + mod;
+            var lien = document.querySelector('.lien');
+            lien.href = "HTML/serie.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "dailyWord.html"
+        if (url.includes("dailyWord.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode violet
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "serie.html"
+        if (url.includes("serie.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode violet
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+    }
+}
+
+// Fonction pour activer le mode vert
+function ModeVert() {
+    // Vérifie si le mode vert n'est pas déjà activé
     if (!document.body.classList.contains('mode-vert')) {
-        // Supprimer les autres modes
+        // Supprimer les autres modes (bleu et violet) des tuiles et ajouter le mode vert
         document.querySelectorAll('.tile2').forEach(function(element) {
             element.classList.remove('mode-bleu', 'mode-violet');
-        });
-        document.querySelectorAll('.btn.home').forEach(function(element) {
-        element.classList.remove('mode-bleu', 'mode-violet');
-      });
-      var score=document.querySelector('.scoreboard');
-        document.body.classList.remove('mode-violet', 'mode-bleu');
-        score.classList.remove('mode-violet', 'mode-bleu');
-        document.body.classList.add('mode-vert');
-        document.querySelectorAll('.tile2').forEach(function(element) {
             element.classList.add('mode-vert');
         });
+        
+        // Supprimer les autres modes (bleu et violet) des boutons home et ajouter le mode vert
         document.querySelectorAll('.btn.home').forEach(function(element) {
-        element.classList.add('mode-vert');
-      });
+            element.classList.remove('mode-bleu', 'mode-violet');
+            element.classList.add('mode-vert');
+        });
+
+        // Supprimer les autres modes (bleu et violet) du scoreboard et ajouter le mode vert
+        document.querySelectorAll('.scoreboard').forEach(function(element) {
+            element.classList.remove('mode-bleu', 'mode-violet');
+            element.classList.add('mode-vert');
+        });
+
+        // Supprimer les classes des modes bleu et violet du body
+        document.body.classList.remove('mode-violet', 'mode-bleu');
+
+        // Ajouter la classe du mode vert au body
+        document.body.classList.add('mode-vert');
+
+        // Enregistrer le mode vert dans sessionStorage
         sessionStorage.setItem('mode', 'vert');
-        var mod = sessionStorage.getItem('mode'); 
-        score.classList.add('mode-vert');
-        var lien = document.querySelector('.lien');
-          lien.href = "../home.html?mode=" + mod;
+        var mod = sessionStorage.getItem('mode');
+        var url = window.location.href;
+
+        // Si la page actuelle est "parametre.html"
+        if (url.includes("parametre.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode vert
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "home.html"
+        if (url.includes("home.html")) {
+            // Mettre à jour les liens des boutons de navigation avec le mode vert
+            var lien3 = document.querySelector('.lien3');
+            lien3.href = "HTML/parametre.html?mode=" + mod;
+            var lien2 = document.querySelector('.lien2');
+            lien2.href = "HTML/dailyWord.html?mode=" + mod;
+            var lien = document.querySelector('.lien');
+            lien.href = "HTML/serie.html?mode=" + mod;
+        }
+
+        // Si la page actuelle est "dailyWord.html"
+        if (url.includes("dailyWord.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode vert
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
+        
+        // Si la page actuelle est "serie.html"
+        if (url.includes("serie.html")) {
+            // Mettre à jour le lien vers "home.html" avec le mode violet
+            var lien = document.querySelector('.lien');
+            lien.href = "../home.html?mode=" + mod;
+        }
     }
-  }
-  
-  
-  // Récupérer les paramètres d'URL
-  const params = new URLSearchParams(window.location.search);
-  const mode = params.get('mode');
-  console.log(mode);
-  
-  // Traiter le mode récupéré
-  if (mode === 'bleu') {
-      ModeBleu();
-  } else if (mode === 'violet') {
+}
+
+// Récupérer les paramètres d'URL
+const params = new URLSearchParams(window.location.search);
+const mode = params.get('mode');
+console.log(mode);
+
+// Traiter le mode récupéré
+if (mode === 'bleu') {
+    ModeBleu();
+} else if (mode === 'violet') {
     ModeViolet();
-  } else if (mode === 'vert') {
+} else if (mode === 'vert') {
     ModeVert();
-    console.log("movert aopeke.");
-  }
-  
+}

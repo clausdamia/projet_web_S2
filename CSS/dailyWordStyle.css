@@ -12,6 +12,7 @@ body {
   padding: 1em;
   font-size: clamp(.5rem, 2.5vmin, 1.5rem);
 }
+
 .btn{
   height: 4em;
   width: 4em;
@@ -90,9 +91,9 @@ body {
   grid-template-rows: repeat(6, 4em);
   gap: .25em;
   margin-bottom: 1em;
-  margin-right: 300px;
-  
+  margin-right: 410px;
 }
+
 .Title{
   display: grid;
   justify-content: center;
@@ -102,12 +103,12 @@ body {
   gap: .25em;
   margin-bottom: 150px;
   margin-left: 50px;
-  
 }
+
 .container{
   display: flex;
-
 }
+
 .tile2 {
   font-size: 2em;
   color: white;
@@ -229,13 +230,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 }
 
 .alert {
-
   pointer-events: none;
- 
   padding: .75em;
   border-radius: .25em;
   opacity: 1;
@@ -246,7 +244,7 @@ body {
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
-  font-size: 6em;
+  font-size: 4em;
   color: rgb(243, 237, 237);
   text-transform: uppercase;
   text-align: center;
@@ -265,6 +263,7 @@ body {
 .alert.hide {
   opacity: 0;
 }
+
 .mode-violet{
   background-image: linear-gradient(135deg, rgb(94, 14, 97), rgb(229, 118, 237));
 }
@@ -272,34 +271,37 @@ body {
 body.mode-violet{
   background-image: linear-gradient(135deg, rgb(94, 14, 97), rgb(229, 118, 237));
 }
+
 .tile2.mode-violet {
   background: radial-gradient(#bd75c1, #793281);
 }
+
 .mode-violet{
   background: radial-gradient(#bd75c1, #793281);
 }
+
 body.mode-bleu {
   background-image: linear-gradient(135deg, rgb(9, 72, 148), rgb(57, 222, 248));
 }
+
 .tile2.mode-bleu {
   background: radial-gradient(#9ad8f3, #414899);
 }
+
 .lien{
   text-decoration: none;
-
   color: white;
 }
+
 .homeimg{
-   
   width: 2.5em;
   height: 2.5em;
 }
+
 .btn.home{
   font-size: 1.5em;
   color: white;
   border: .05em solid hsl(288, 20%, 95%);
-  
-  
   text-transform: uppercase;
   font-weight: bold;
   display: flex;
@@ -308,19 +310,19 @@ body.mode-bleu {
   user-select: none;
   border-radius: 10px; /
 }
+
 .mode-bleu{
   background: radial-gradient(#9ad8f3, #414899);
 }
+
 .mode-vert{
   background: radial-gradient(#75c185, #328137);
 }
+
 body.mode-vert {
   background-image: linear-gradient(135deg, rgb(22, 111, 10), rgb(137, 210, 138));
 }
+
 .tile2.mode-vert {
   background: radial-gradient(#75c185, #328137);
 }
-
-
-
-

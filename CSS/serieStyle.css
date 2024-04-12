@@ -1,7 +1,7 @@
 *, *::after, *::before {
-    box-sizing: border-box;
-    font-family: Arial;
-  }
+  box-sizing: border-box;
+  font-family: Arial;
+}
   
 body {
   background-image: linear-gradient(135deg, rgb(9, 72, 148), rgb(57, 222, 248));
@@ -91,8 +91,7 @@ body {
   grid-template-rows: repeat(6, 4em);
   gap: .25em;
   margin-bottom: 1em;
-  
-  margin-left:2.9em ;
+  margin-left:0.7em ;
 }
 
 .Title{
@@ -108,14 +107,12 @@ body {
 
 .container{
   display: flex;
-
 }
 
 .tile2 {
   font-size: 2em;
   color: white;
   border: .05em solid hsl(288, 20%, 95%);
-  
   background: radial-gradient(#9ad8f3, #414899);
   text-transform: uppercase;
   font-weight: bold;
@@ -125,7 +122,6 @@ body {
   user-select: none;
   border-radius: 10px; /* Vous pouvez ajuster la valeur de border-radius selon vos préférences */
 }
-
 
 .tile {
   font-size: 2em;
@@ -171,9 +167,11 @@ body {
 .tile.flip {
   transform: rotateX(90deg);
 }
+
 .guess{
   display:flex;
 }
+
 @keyframes shake {
   10% {
     transform: translateX(-5%);
@@ -281,6 +279,7 @@ body.mode-violet{
 .tile2.mode-violet {
   background: radial-gradient(#bd75c1, #793281);
 }
+
 .mode-violet{
   background: radial-gradient(#bd75c1, #793281);
 }
@@ -295,12 +294,10 @@ body.mode-bleu {
 
 .lien{
   text-decoration: none;
-
   color: white;
 }
 
 .homeimg{
-    
   width: 2.5em;
   height: 2.5em;
 }
@@ -309,7 +306,6 @@ body.mode-bleu {
   font-size: 1.5em;
   color: white;
   border: .05em solid hsl(288, 20%, 95%);
-  
   text-transform: uppercase;
   font-weight: bold;
   display: flex;
@@ -348,7 +344,7 @@ body.mode-vert {
   font-size: x-large;
   border-radius: 10%;
   height: 5em;
-  margin-top: 5em;
+  margin-top: 200px;
 }
 
 .score, .guessed-words {
@@ -374,10 +370,10 @@ body.mode-vert {
 }
 
 .scoreboard.mode-bleu{
-  border-top: 4px dashed #0025f6;
-  border-right: 4px dashed #2500f6;
-  border-bottom: 4px dashed #0039f6;
-  border-left: 4px dashed #2900f6;
+  border-top: 4px dashed #0076fd;
+  border-right: 4px dashed #0076fd;
+  border-bottom: 4px dashed #0076fd;
+  border-left: 4px dashed #0076fd;
   background:none;
 }
 
