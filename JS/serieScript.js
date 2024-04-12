@@ -751,7 +751,7 @@ function submitGuess() {
     // Vérifie si le nombre de tuiles actives correspond à la longueur du mot attendue
     if (activeTiles.length !== WORD_LENGTH) { 
         // Affiche une alerte si le nombre de lettres n'est pas suffisant
-        showAlert("Not enough letters");
+        showAlert("Pas assez de lettres");
         // Fait trembler les tuiles actives pour indiquer l'erreur
         shakeTiles(activeTiles);
         return; // Arrête l'exécution de la fonction
@@ -765,7 +765,7 @@ function submitGuess() {
     // Vérifie si la tentative de mot est présente dans le dictionnaire
     if (!dictionary.includes(guess)) { 
         // Affiche une alerte si le mot n'est pas présent dans la liste de mots attendus
-        showAlert("Not in word list");
+        showAlert("Pas dans le dictionnaire");
         // Fait trembler les tuiles actives pour indiquer l'erreur
         shakeTiles(activeTiles);
         return; // Arrête l'exécution de la fonction
@@ -876,7 +876,7 @@ function checkWinLose(guess, tiles) {
     // Vérifie si la tentative de mot correspond au mot cible
     if (guess === targetWord) {
         // Affiche un message de victoire pendant 5 secondes
-        showAlert("You Win", 3000);
+        showAlert("Tu as gagné", 3000);
         guessedWords++;
         attempt++;
 
@@ -912,7 +912,7 @@ function checkWinLose(guess, tiles) {
     if (remainingTiles.length === 0) {
     // Affiche le mot cible en majuscules comme message de défaite
     attempt++;
-    showAlert(`the word was ${targetWord.toUpperCase()}`, 3000);
+    showAlert(`Le mot était ${targetWord.toUpperCase()}`, 3000);
     // Arrête l'interaction avec le jeu
     resetTiles();
     }
@@ -921,8 +921,8 @@ function checkWinLose(guess, tiles) {
 function resetTiles() {
 
     if (attempt > 4){
-        showAlert(`Score :${score}`, 5000);
-        showAlert(`Mot devinés:${guessedWords}`, 5000);
+        showAlert(`Score : ${score}`, 5000);
+        showAlert(`Mots devinés : ${guessedWords}`, 5000);
 
         stopInteraction();
     }

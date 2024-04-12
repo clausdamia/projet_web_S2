@@ -729,7 +729,7 @@ const submitGuess = () => {
     // Vérifie si le nombre de tuiles actives correspond à la longueur du mot attendue
     if (activeTiles.length !== WORD_LENGTH) { 
     // Affiche une alerte si le nombre de lettres n'est pas suffisant
-    showAlert("Not enough letters");
+    showAlert("Pas assez de lettres");
     // Fait trembler les tuiles actives pour indiquer l'erreur
     shakeTiles(activeTiles);
     return; // Arrête l'exécution de la fonction
@@ -743,7 +743,7 @@ const submitGuess = () => {
     // Vérifie si la tentative de mot est présente dans le dictionnaire
     if (!dictionary.includes(guess)) { 
     // Affiche une alerte si le mot n'est pas présent dans la liste de mots attendus
-    showAlert("Not in word list");
+    showAlert("Pas dans le dictionnaire");
     // Fait trembler les tuiles actives pour indiquer l'erreur
     shakeTiles(activeTiles);
     return; // Arrête l'exécution de la fonction
@@ -851,7 +851,7 @@ function checkWinLose(guess, tiles) {
     // Vérifie si la tentative de mot correspond au mot cible
     if (guess === targetWord) {
     // Affiche un message de victoire pendant 5 secondes
-    showAlert("You Win", 5000);
+    showAlert("Tu as gagné", 5000);
     // Arrête l'interaction avec le jeu
     stopInteraction();
     return; // Arrête l'exécution de la fonction
@@ -862,7 +862,7 @@ function checkWinLose(guess, tiles) {
     // Si toutes les tuiles sont remplies et que le joueur n'a pas trouvé le mot
     if (remainingTiles.length === 0) {
     // Affiche le mot cible en majuscules comme message de défaite
-    showAlert(`the word was ${targetWord.toUpperCase()}`, null);
+    showAlert(`Le mot était ${targetWord.toUpperCase()}`, null);
     // Arrête l'interaction avec le jeu
     stopInteraction();
     }
@@ -935,19 +935,19 @@ if (!document.body.classList.contains('mode-violet')) {
     sessionStorage.setItem('mode', 'violet');
     var mod = sessionStorage.getItem('mode');
     var url = window.location.href;
-if (url.includes("parametre.html")) {
-var lien = document.querySelector('.lien');
-lien.href = "../home.html?mode=" + mod;
+    if (url.includes("parametre.html")) {
+    var lien = document.querySelector('.lien');
+    lien.href = "../home.html?mode=" + mod;
     }
 
     if (url.includes("home.html")) {
-var lien3 = document.querySelector('.lien3');
-lien3.href = "HTML/parametre.html?mode=" + mod;
-var lien2 = document.querySelector('.lien2');
-lien2.href = "HTML/dailyWord.html?mode=" + mod;
-var lien = document.querySelector('.lien');
-lien.href = "HTML/serie.html?mode=" + mod;
-        }
+        var lien3 = document.querySelector('.lien3');
+        lien3.href = "HTML/parametre.html?mode=" + mod;
+        var lien2 = document.querySelector('.lien2');
+        lien2.href = "HTML/dailyWord.html?mode=" + mod;
+        var lien = document.querySelector('.lien');
+        lien.href = "HTML/serie.html?mode=" + mod;
+    }
     
     if (url.includes("dailyWord.html")) {
         var lien = document.querySelector('.lien');
@@ -955,7 +955,6 @@ lien.href = "HTML/serie.html?mode=" + mod;
         }
     }
 }
-
 
 // Fonction pour activer le mode vert
 function ModeVert() {
@@ -1000,7 +999,6 @@ function ModeVert() {
         }
         }
 }
-
 
 // Récupérer les paramètres d'URL
 const params = new URLSearchParams(window.location.search);
