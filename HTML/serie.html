@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/serieStyle.css">
+  <link rel="icon" type="image/x-con" href="../point-dinterrogation.png" >
+  <title>Guess word</title>
+</head>
+<body>
+  <div class="alert-container" data-alert-container></div>
+  <div class="container">
+  <div class="Title">
+    <div class="tile2">G</div>
+    <div class="tile2">U</div>
+    <div class="tile2">E</div>
+    <div class="tile2">S</div>
+    <div class="tile2">S</div>
+
+    <div class="tile2">W</div>
+    <div class="tile2">O</div>
+    <div class="tile2">R</div>
+    <div class="tile2">D</div>
+    </div>
+   
+  <div data-guess-grid class="guess-grid">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  
+</div>
+  <div class="scoreboard">
+    <div class="score">Score: <span id="score">0</span></div>
+    <div class="guessed-words">Mots devinés: <span id="guessed-words">0</span></div>
+  </div>
+  <button class="btn home">
+    <a class="lien" href="../home.html?mode=bleu"><img
+      class="homeimg"
+      src="../home.png"
+      alt="Home"
+    ></a></button>
+</div>
+<div data-keyboard class="keyboard">
+    <button class="key" data-key="A">A</button>
+    <button class="key" data-key="Z">Z</button>
+    <button class="key" data-key="E">E</button>
+    <button class="key" data-key="R">R</button>
+    <button class="key" data-key="T">T</button>
+    <button class="key" data-key="Y">Y</button>
+    <button class="key" data-key="U">U</button>
+    <button class="key" data-key="I">I</button>
+    <button class="key" data-key="O">O</button>
+    <button class="key" data-key="P">P</button>
+    <div class="space"></div>
+    <button class="key" data-key="Q">Q</button>
+    <button class="key" data-key="S">S</button>
+    <button class="key" data-key="D">D</button>
+    <button class="key" data-key="F">F</button>
+    <button class="key" data-key="G">G</button>
+    <button class="key" data-key="H">H</button>
+    <button class="key" data-key="J">J</button>
+    <button class="key" data-key="K">K</button>
+    <button class="key" data-key="L">L</button>
+    <div class="space"></div>
+    <button data-enter class="key large">Enter</button>
+    <button class="key" data-key="W">W</button>
+    <button class="key" data-key="X">X</button>
+    <button class="key" data-key="C">C</button>
+    <button class="key" data-key="V">V</button>
+    <button class="key" data-key="B">B</button>
+    <button class="key" data-key="N">N</button>
+    <button class="key" data-key="M">M</button>
+    <!-- pour pouvoir avoir une belle image de bouton supprimer -->
+    <button data-delete class="key large" class="btn-dlt">Delete</button>
+</div>
+<script src="../JS/serieScript.js" ></script>
+</body>
+</html>
