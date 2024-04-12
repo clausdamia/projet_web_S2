@@ -896,33 +896,27 @@ function ModeBleu() {
         lien.href = "../home.html?mode=" + mod;
           }
         
-          if (url.includes("home.html")) {
-            var lien3 = document.querySelector('.lien3');
-  // Ajouter le mode en tant que paramètre à l'URL
-  lien3.href = "Html/parametre.html?mode=" + mod;
-  var lien2 = document.querySelector('.lien2');
-  // Ajouter le mode en tant que paramètre à l'URL
-  lien2.href = "Html/index.html?mode=" + mod;
-
-  var lien = document.querySelector('.lien');
-  // Ajouter le mode en tant que paramètre à l'URL
-  lien.href = "Html/suite.html?mode=" + mod;
-              }
+      if (url.includes("home.html")) {
+        var lien3 = document.querySelector('.lien3');
+        lien3.href = "Html/parametre.html?mode=" + mod;
+        var lien2 = document.querySelector('.lien2');
+        lien2.href = "Html/index.html?mode=" + mod;
+        var lien = document.querySelector('.lien');
+         lien.href = "Html/suite.html?mode=" + mod;
+      }
             
-            if (url.includes("index.html")) {
-              var lien = document.querySelector('.lien');
-              
-                  lien.href = "../home.html?mode=" + mod;
-                }
-          }
-          }
+      if (url.includes("index.html")) {
+        var lien = document.querySelector('.lien');
+        lien.href = "../home.html?mode=" + mod;
+      }
+    }
+  }
           
 
 
 // Fonction pour activer le mode violet
 function ModeViolet() {
-  console.log("La fonmodeviolet a été appelée.");
- 
+
   if (!document.body.classList.contains('mode-violet')) {
       document.querySelectorAll('.tile2').forEach(function(element) {
           element.classList.remove('mode-bleu', 'mode-vert');
@@ -945,26 +939,20 @@ function ModeViolet() {
       var url = window.location.href;
 if (url.includes("parametre.html")) {
   var lien = document.querySelector('.lien');
-  // Ajouter le mode en tant que paramètre à l'URL
   lien.href = "../home.html?mode=" + mod;
     }
   
     if (url.includes("home.html")) {
-      var lien3 = document.querySelector('.lien3');
-  // Ajouter le mode en tant que paramètre à l'URL
+  var lien3 = document.querySelector('.lien3');
   lien3.href = "Html/parametre.html?mode=" + mod;
   var lien2 = document.querySelector('.lien2');
-  // Ajouter le mode en tant que paramètre à l'URL
   lien2.href = "Html/index.html?mode=" + mod;
-
   var lien = document.querySelector('.lien');
-  // Ajouter le mode en tant que paramètre à l'URL
   lien.href = "Html/suite.html?mode=" + mod;
         }
       
       if (url.includes("index.html")) {
         var lien = document.querySelector('.lien');
-        // Ajouter le mode en tant que paramètre à l'URL
             lien.href = "../home.html?mode=" + mod;
           }
     }
@@ -973,7 +961,6 @@ if (url.includes("parametre.html")) {
 
 // Fonction pour activer le mode vert
 function ModeVert() {
-  console.log("mode vertté appelée.");
   if (!document.body.classList.contains('mode-vert')) {
       // Supprimer les autres modes
       document.querySelectorAll('.tile2').forEach(function(element) {
@@ -996,26 +983,21 @@ function ModeVert() {
   var url = window.location.href;
   if (url.includes("parametre.html")) {
     var lien = document.querySelector('.lien');
-// Ajouter le mode en tant que paramètre à l'URL
     lien.href = "../home.html?mode=" + mod;
   }
 
 if (url.includes("home.html")) {
   var lien3 = document.querySelector('.lien3');
-  // Ajouter le mode en tant que paramètre à l'URL
   lien3.href = "Html/parametre.html?mode=" + mod;
   var lien2 = document.querySelector('.lien2');
-  // Ajouter le mode en tant que paramètre à l'URL
   lien2.href = "Html/index.html?mode=" + mod;
 
   var lien = document.querySelector('.lien');
-  // Ajouter le mode en tant que paramètre à l'URL
   lien.href = "Html/suite.html?mode=" + mod;
     }
   
   if (url.includes("index.html")) {
     var lien = document.querySelector('.lien');
-    // Ajouter le mode en tant que paramètre à l'URL
         lien.href = "../home.html?mode=" + mod;
       }
     }
@@ -1029,13 +1011,10 @@ console.log(mode);
 
 // Traiter le mode récupéré
 if (mode === 'bleu') {
-    // Appliquer le mode bleu
     ModeBleu();
 } else if (mode === 'violet') {
   ModeViolet();
-    // Appliquer le mode violet
 } else if (mode === 'vert') {
   ModeVert();
-  console.log("movert aopeke.");
-    // Appliquer le mode vert
+  
 }

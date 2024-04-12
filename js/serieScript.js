@@ -975,7 +975,7 @@ function ModeBleu() {
         score.classList.add('mode-bleu');
         bouton.classList.toggle('mode-bleu');
         
-        // Sauvegarder le mode dans localStorage
+       
         sessionStorage.setItem('mode', 'bleu');
         var mod = sessionStorage.getItem('mode');
         score.classList.add('mode-bleu');
@@ -1056,14 +1056,11 @@ function ModeBleu() {
   
   // Traiter le mode récupéré
   if (mode === 'bleu') {
-      // Appliquer le mode bleu
       ModeBleu();
   } else if (mode === 'violet') {
     ModeViolet();
-      // Appliquer le mode violet
   } else if (mode === 'vert') {
     ModeVert();
     console.log("movert aopeke.");
-      // Appliquer le mode vert
   }
   
