@@ -65,7 +65,7 @@ body {
 
 .key:hover, .key:focus {
   --lightness-offset: 10%;
-  background:rgb(114, 114, 114);
+  background:rgb(150, 149, 149);
 }
 
 .key.wrong {
