@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/styles.css">
-  
+  <link rel="stylesheet" href="../CSS/suites.css">
+ 
   <title>Wordle mais pour un projet d'indo</title>
 </head>
-<body >
+<body>
   <div class="alert-container" data-alert-container></div>
   <div class="container">
-  <div class="Title ">
+  <div class="Title">
     <div class="tile2">G</div>
     <div class="tile2">U</div>
     <div class="tile2">E</div>
@@ -22,7 +22,7 @@
     <div class="tile2">R</div>
     <div class="tile2">D</div>
     </div>
-    
+   
   <div data-guess-grid class="guess-grid">
     <div class="tile"></div>
     <div class="tile"></div>
@@ -54,6 +54,11 @@
     <div class="tile"></div>
     <div class="tile"></div>
     <div class="tile"></div>
+  
+</div>
+  <div class="scoreboard">
+    <div class="score">Score: <span id="score">0</span></div>
+    <div class="guessed-words">Mots devinés: <span id="guessed-words">0</span></div>
   </div>
   <button class="btn home">
     <a class="lien" href="../home.html?mode=bleu"><img
@@ -62,7 +67,7 @@
       alt="Home"
     ></a></button>
 </div>
-  <div data-keyboard class="keyboard">
+<div data-keyboard class="keyboard">
     <button class="key" data-key="A">A</button>
     <button class="key" data-key="Z">Z</button>
     <button class="key" data-key="E">E</button>
@@ -94,7 +99,7 @@
     <button class="key" data-key="M">M</button>
     <!-- pour pouvoir avoir une belle image de bouton supprimer -->
     <button data-delete class="key large" class="btn-dlt">Delete</button>
-  </div>
-  <script src="../script.js" ></script>
+</div>
+<script src="../js/serieScript.js" ></script>
 </body>
 </html>

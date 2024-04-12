@@ -60,17 +60,21 @@
     user-select: none;
     border-radius: 10px;
   }
-  .lien2{
+  .lien2 {
         text-decoration: none;
 
         color: white;
   }
-  .lien3{
+.lien3{
     text-decoration: none;
 
     color: white;
 }
+.lien{
+  text-decoration: none;
 
+  color: white;
+}
 body.mode-violet{
   background-image: linear-gradient(135deg, rgb(94, 14, 97), rgb(229, 118, 237));
 }
