@@ -98,7 +98,8 @@ Le fichier suites.css contient les styles spécifiques à la page de la suite. I
 
 ## Installation: 
 Pour installer le jeu de devinettes, suivez ces étapes :
-- cloner https://github.com/clausdamia/projet_web_S2 puis ouvrez les fichiers sur votre machine local.
+- Clonez le dépôt : ``git clone https://github.com/clausdamia/projet_web_S2`` 
+- ouvrez les fichiers sur votre machine local.
 - Assurez-vous d'avoir un navigateur web compatible tel que Chrome, Firefox ou Edge.
 
 </div>
